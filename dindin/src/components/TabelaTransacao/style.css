@@ -1,0 +1,21 @@
+td {
+    color: #000000;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 21px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.linha-data {
+    font-weight: 700;
+}
+
+.linha-editar {
+    margin-right: 17px;
+}
+
+.linha-apagar, .linha-editar {
+    cursor: pointer;
+}
