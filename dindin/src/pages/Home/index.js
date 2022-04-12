@@ -11,7 +11,6 @@ import ModalUsuario from '../../components/ModalUsuario';
 import TabelaTransacao from '../../components/TabelaTransacao';
 import {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
-import { format } from 'date-fns';
 
 function Home() {
 
@@ -21,6 +20,7 @@ function Home() {
   const [mostrarModalRegistro, setMostrarModalRegistro] = useState(false);
   const [mostrarModalUsuario, setMostrarModalUsuario] = useState(false);
   const [mostrarFiltro, setMostrarFiltro] = useState(false);
+  const [ordenarCategoria, setOrdenarCategoria] = useState(false);
   const [nomeUsuario, setNomeUsuario] = useState('');
 
   function abrirModalRegistro() {
@@ -96,19 +96,27 @@ function Home() {
   };
 
   function ordenar() {
-    const teste = [...listarTransacoes]
+    const listaOrdenada = [...listarTransacoes]
 
-    
+    if (ordenarCategoria) {
+      function ordenacao(a,b) {
+        return new Date(a.data) - new Date(b.data);
+      };
 
-    function ordenacao(a,b) {
-      const dataA = format(new Date(a.data), 'dd/MM/yy');
-      const dataB = format(new Date(b.data), 'dd/MM/yy')
-      return dataB - dataA;
+      listaOrdenada.sort(ordenacao);
+      setListarTransacoes(listaOrdenada);
+      setOrdenarCategoria(false);
+
+    } else {
+      function ordenacao(a,b) {
+        return new Date(b.data) - new Date(a.data);
+      };
+
+      listaOrdenada.sort(ordenacao);
+      setListarTransacoes(listaOrdenada);
+      setOrdenarCategoria(true);
     };
-
-    teste.sort(ordenacao)
-    console.log(categorias)
-  }
+  };
 
 
   useEffect(() => {
