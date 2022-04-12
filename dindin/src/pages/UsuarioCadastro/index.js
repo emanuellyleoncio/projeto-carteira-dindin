@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import api from '../../services/api';
 
-function Cadastro() {
+function UsuarioCadastro() {
   const navigate = useNavigate();
   const [form, setForm] = useState({nome:'', email:'', senha:'', confirma:''});
 
@@ -37,7 +37,7 @@ function Cadastro() {
   return (
     <div className="container-cadastro">
 
-      <img className="logo" src={logo} alt="Logo"></img>
+      <img className="logo-cadastro" src={logo} alt="Logo"></img>
       
       <div className="conteudo-cadastro">
         <h1>Login</h1>
@@ -90,4 +90,4 @@ function Cadastro() {
   );
 }
 
-export default Cadastro;
+export default UsuarioCadastro;

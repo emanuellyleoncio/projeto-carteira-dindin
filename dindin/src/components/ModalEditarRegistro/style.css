@@ -1,13 +1,16 @@
 .modal-adicionar {
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba(3, 3, 3, 0.5);
     font-family: 'Rubik', sans-serif;
     position: absolute;
-    
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
 }
 
 .container-modal-adicionar {
@@ -20,8 +23,7 @@
 
     position: relative;
     position: fixed;
-    top: 79px;
-
+    top: 72px;
 }
 
 .top-modal-adicionar {

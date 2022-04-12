@@ -6,6 +6,7 @@
 
 .container-home {
   font-family: 'Rubik', sans-serif;
+  height: 100vh;
   position: relative;
 }
 
@@ -17,13 +18,6 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-}
-
-
-.logo {
-  position: absolute;
-  top: 41px;
-  left: 100px;
 }
 
 .usuario {
@@ -63,6 +57,76 @@
   justify-content: center;
   padding: 8px 15px;
   margin: 55px 0px 26px 106px;
+}
+
+.resumo-filtro {
+  background: #FAFAFA;
+  box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  width: 959px;
+  height: 205px;
+  margin: 55px 0px 26px 106px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.resumo-filtro h1 {
+  font-weight: 500;
+  font-size: 12px;
+  color: #B9B9B9;
+  margin-left: 36px;
+  margin-top: 32px;
+  margin-bottom: 20px;
+}
+
+.btn-categoria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  width: 920px;
+  height: 80px;
+  margin-left: 36px;
+  margin-bottom: 18px;
+}
+
+.btn-categoria button {
+  all: unset;
+  background: #FAFAFA;
+  box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  color: #000000;
+  width: 80px;
+  height: 20px;
+  text-align: left;
+  font-weight: 400;
+  font-size: 10px;
+  padding: 4px 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.btn-aplicar-limpar {
+  margin-left: 31px;
+}
+
+.btn-aplicar-limpar button {
+  all: unset;
+  background: #7978D9;
+  box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 12px;
+  text-align: center;
+  width: 98px;
+  height: 30px;
+  margin-right: 18px;
+  cursor: pointer;
 }
 
 

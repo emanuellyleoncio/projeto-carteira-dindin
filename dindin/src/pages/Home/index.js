@@ -4,12 +4,14 @@ import userLogo from '../../assets/user-logo.svg';
 import logout from '../../assets/logout.svg';
 import filtro from '../../assets/filtro.svg';
 import setaCima from '../../assets/seta-cima.svg';
+import sinalMais from '../../assets/mais.svg';
 import api from '../../services/api';
 import ModalRegistro from '../../components/ModalRegistro';
 import ModalUsuario from '../../components/ModalUsuario';
 import TabelaTransacao from '../../components/TabelaTransacao';
 import {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
+import { format } from 'date-fns';
 
 function Home() {
 
@@ -18,8 +20,8 @@ function Home() {
   const [listarTransacoes, setListarTransacoes] = useState([]);
   const [mostrarModalRegistro, setMostrarModalRegistro] = useState(false);
   const [mostrarModalUsuario, setMostrarModalUsuario] = useState(false);
+  const [mostrarFiltro, setMostrarFiltro] = useState(false);
   const [nomeUsuario, setNomeUsuario] = useState('');
-  const [ordenacao, setOrdenacao] = useState(false);
 
   function abrirModalRegistro() {
     setMostrarModalRegistro(true);
@@ -35,6 +37,14 @@ function Home() {
 
   function fecharModalUsuario() {
     setMostrarModalUsuario(false);
+  };
+
+  function abrirFiltro() {
+    if (mostrarFiltro) {
+      setMostrarFiltro(false);
+    } else {
+      setMostrarFiltro(true);
+    }
   };
 
   async function dadosUsuario() {
@@ -85,28 +95,32 @@ function Home() {
     };
   };
 
+  function ordenar() {
+    const teste = [...listarTransacoes]
+
+    
+
+    function ordenacao(a,b) {
+      const dataA = format(new Date(a.data), 'dd/MM/yy');
+      const dataB = format(new Date(b.data), 'dd/MM/yy')
+      return dataB - dataA;
+    };
+
+    teste.sort(ordenacao)
+    console.log(categorias)
+  }
+
+
   useEffect(() => {
     extratoTransacao();
     listagemTransacoes();
     dadosUsuario();
+    resumoCategoria()
   }, []);
   
 
   return (
     <div className="container-home">
-
-      <ModalRegistro
-        mostrarModalRegistro={mostrarModalRegistro}
-        fecharModalRegistro={fecharModalRegistro}
-        listagemTransacoes={listagemTransacoes}
-        extratoTransacao={extratoTransacao}
-      />
-
-      <ModalUsuario
-        mostrarModalUsuario={mostrarModalUsuario}
-        fecharModalUsuario={fecharModalUsuario}
-      />
-      
       <div className="home-header">
 
         <img className="logo"src={logo} alt="Logo"></img>
@@ -119,14 +133,38 @@ function Home() {
       </div>
 
       <div>
-        <button className="btn-filtro"><img src={filtro} alt="Filtro"></img>Filtrar</button>
+        <button
+          onClick={() => abrirFiltro()} 
+          className="btn-filtro">
+            <img src={filtro} alt="Filtro"></img>
+            Filtrar
+          </button>
+        {mostrarFiltro &&
+
+          <div className="resumo-filtro">
+            <h1>Categoria</h1>
+            <div className="btn-categoria">
+              {categorias.map((item) => (
+                <button
+                  key={item.id}>
+                    {item.descricao}
+                    <img src={sinalMais}></img>
+                </button>
+              ))}
+            </div>
+            <div className="btn-aplicar-limpar">
+              <button>Limpar Filtros</button>
+              <button>Aplicar Filtros</button>
+            </div>
+          </div>
+        
+        }
 
         <div className="home-conteudo">
-
           <table>
             <thead>
               <tr className="header-table">
-                <th>Data <img src={setaCima} alt="Seta para cima"></img></th>
+                <th>Data <img onClick={() => ordenar()} src={setaCima} alt="Seta para cima"></img></th>
                 <th>Dia da semana</th>
                 <th>Descrição</th>
                 <th>Categoria</th>
@@ -166,13 +204,20 @@ function Home() {
 
             <button onClick={() => abrirModalRegistro()}>Adicionar Registro</button>
           </div>
-
-          
-
         </div>
       </div>
 
-      
+      <ModalRegistro
+        mostrarModalRegistro={mostrarModalRegistro}
+        fecharModalRegistro={fecharModalRegistro}
+        listagemTransacoes={listagemTransacoes}
+        extratoTransacao={extratoTransacao}
+      />
+
+      <ModalUsuario
+        mostrarModalUsuario={mostrarModalUsuario}
+        fecharModalUsuario={fecharModalUsuario}
+      />
 
     </div>
   );

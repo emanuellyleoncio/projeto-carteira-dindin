@@ -8,6 +8,6 @@ export default axios.create({
     timeout: 10000,
     headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NTgsImlhdCI6MTY0OTc2MDU3MywiZXhwIjoxNjQ5Nzg5MzczfQ.TxZEtWkbFYCF7Jj0NOz2Jh7YiYC8vgnOH-_xWXYPxHM' 
+        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NTgsImlhdCI6MTY0OTc4OTU0NCwiZXhwIjoxNjQ5ODE4MzQ0fQ.djbQk94u0GQrtbI9nb5wtKU9uN9VV-qfK-fkRMEsoFY' 
     }
 });

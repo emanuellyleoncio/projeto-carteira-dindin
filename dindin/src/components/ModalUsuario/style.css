@@ -7,7 +7,10 @@
     background-color: rgba(3, 3, 3, 0.5);
     font-family: 'Rubik', sans-serif;
     position: absolute;
-    
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
 }
 
 .container-modal-usuario {
@@ -21,7 +24,6 @@
     position: relative;
     position: fixed;
     top: 127px;
-
 }
 
 .top-modal-usuario {
@@ -31,13 +33,11 @@
     margin: 61px 64px 52px 64px;
 }
 
-
 .top-modal-usuario h1 {
     color: #000000;
     font-weight: 700;
     font-size: 36px;
 }
-
 
 .form-modal-usuario {
     margin: 0px 62px 48px 62px;
@@ -48,7 +48,6 @@
     font-weight: 500;
     font-size: 24px;
 }
-
 
 .form-modal-usuario input {
     border: 1px solid #555555;

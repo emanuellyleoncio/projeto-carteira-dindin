@@ -63,8 +63,6 @@ function TabelaTransacao({item, abrirModalEditarRegistro, listarTransacoes, extr
                     extratoTransacao={extratoTransacao}
                     listagemTransacoes={listagemTransacoes}
                 />
-                
-                
             </td>
             
         </tr>

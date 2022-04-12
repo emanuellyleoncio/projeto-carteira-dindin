@@ -1,7 +1,7 @@
 import { Route, Routes, Navigate, Outlet } from 'react-router-dom';
 import Login from './pages/Login';
 import Home from './pages/Home';
-import Cadastro from './pages/Cadastro';
+import UsuarioCadastro from './pages/UsuarioCadastro';
 import {getItem} from './utils/storage';
 
 function RotaProtegida({ redirectTo }) {
@@ -19,7 +19,7 @@ function Rotas() {
             ></Route>
             <Route 
                 path='/cadastro'
-                element={<Cadastro />}
+                element={<UsuarioCadastro />}
             ></Route>
             <Route element={<RotaProtegida redirectTo={'/'}/>}>
                 <Route 
