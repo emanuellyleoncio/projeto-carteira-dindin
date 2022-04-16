@@ -32,6 +32,7 @@ function ModalRegistro({mostrarModalRegistro, fecharModalRegistro, listagemTrans
         if (!formRegistro.valor || !formRegistro.categoria_id || !formRegistro.data || !formRegistro.descricao) {
             return;
         };
+        console.log(formRegistro)
 
         try {
             const response = await api.post('/transacao',
@@ -39,7 +40,7 @@ function ModalRegistro({mostrarModalRegistro, fecharModalRegistro, listagemTrans
                     ...formRegistro
                 }
             );
-              
+
             fecharModalRegistro(false);
             extratoTransacao();
             listagemTransacoes();

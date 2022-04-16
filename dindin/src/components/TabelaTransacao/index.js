@@ -15,7 +15,6 @@ function TabelaTransacao({item, abrirModalEditarRegistro, listarTransacoes, extr
     function abrirModalEditarRegistro() {
         setMostrarModalEditarRegistro(true);
     };
-    
     function fecharModalEditarRegistro() {
         setMostrarModalEditarRegistro(false);
     };
